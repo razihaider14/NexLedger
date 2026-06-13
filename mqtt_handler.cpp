@@ -36,7 +36,7 @@ static void onMessage(char* topic, byte* payload, unsigned int length) {
             displayMessage(name, line2);
             feedbackSuccess();
         } else {
-            displaymessage("Declined", doc["reason"] | "Try again");
+            displayMessage("Declined", doc["reason"] | "Try again");
             feedbackFailure();
         }
         rfidClearLastUID();
@@ -49,4 +49,61 @@ static void onMessage(char* topic, byte* payload, unsigned int length) {
         feedbackEnrollMode();
         return;
     }
+}
+
+static void loadCredentials() {
+    prefs.begin("nexledger", true);
+    mqttBroker = prefs.getString("mqtt_ip", "");
+    mqttUser = prefs.getString("mqtt_user", "");
+    mqttPassword = prefs.getString("mqtt_pass", "");
+    prefs.end();
+}
+
+static void connectMQTT() {
+    if (mqttClient.connected()) return;
+
+    unsigned long now = millis();
+    if (now - lastReconnectAt < RECONNECT_INTERVAL) return;
+    lastReconnectAt = now;
+
+    displayMessage("MQTT", "Connecting...");
+
+    secureClient.setCACert(CA_CERT);
+    mqttClient.setServer(mqttBroker.c_str(), MQTT_PORT);
+    mqttClient.setCallback(onMessage);
+
+    if (mqttClient.connect("NexLedger", mqttUser.c_str(), mqttPassword.c_str())) {
+        mqttClient.subscribe(TOPIC_RESULT);
+        mqttClient.subscribe(TOPIC_ENROLL_START);
+        displayMessage("NexLedger", "Ready");
+    } else {
+        displayMessage("MQTT Failed", "Retrying...");
+    }
+}
+
+void mqttInit() {
+    loadCredentials();
+    connectMQTT();
+}
+
+void mqttUpdate() {
+    if (!mqttClient.connected()) {
+        connectMQTT();
+        return;
+    }
+    mqttClient.loop();
+
+    unsigned long now = millis();
+    if (now - lastHeartbeat >= HEARTBEAT_INTERVAL) {
+        lastHeartbeat = now;
+        mqttClient.publish(TOPIC_STATUS, "online");
+    }
+}
+
+void mqttPublishScan(const String& uid) {
+    StaticJsonDocument<64> doc;
+    doc["uid"] = uid;
+    char buf[64];
+    serializeJson(doc, buf);
+    mqttClient.publish(TOPIC_ENROLL_SCANNED, buf);
 }
