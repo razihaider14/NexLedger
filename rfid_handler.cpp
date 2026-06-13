@@ -2,7 +2,6 @@
 #include "config.h"
 #include "feedback.h"
 #include "display.h"
-#include "mqtt_handler.h"
 #include <Arduino.h>
 #include <SPI.h>
 #include <MFRC522.h>
@@ -10,6 +9,9 @@
 static MFRC522 mfrc522(PIN_RC522_SS, PIN_RC522_RST);
 static unsigned long lastScanTime = 0;
 static String lastUID = "";
+
+void mqttPublishScan(const String& uid);
+void mqttPublishEnrollScanned(const String& uid);
 
 bool enrollMode = false;
 

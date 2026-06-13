@@ -2,7 +2,6 @@
 #include "config.h"
 #include "feedback.h"
 #include "display.h"
-#include "rfid_handler.h"
 #include <Arduino.h>
 #include <WiFiClientSecure.h>
 #include <PubSubClient.h>
@@ -16,6 +15,9 @@ static Preferences prefs;
 static unsigned long lastHeartbeat = 0;
 static unsigned long lastReconnectAt = 0;
 #define RECONNECT_INTERVAL 5000
+
+void rfidClearLastUID();
+extern bool enrollMode;
 
 static void onMessage(char* topic, byte* payload, unsigned int length) {
     String t = String(topic);
@@ -36,7 +38,8 @@ static void onMessage(char* topic, byte* payload, unsigned int length) {
             displayMessage(name, line2);
             feedbackSuccess();
         } else {
-            displayMessage("Declined", doc["reason"] | "Try again");
+            const char* reason = doc["reason"] | "Try again";
+            displayMessage("Declined", reason);
             feedbackFailure();
         }
         rfidClearLastUID();

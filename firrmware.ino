@@ -1,4 +1,3 @@
-#include <Arduino.h>
 #include <WiFiManager.h>
 #include <Preferences.h>
 
@@ -43,7 +42,8 @@ void setup() {
         ESP.restart();
     }
 
-    displayMessage("WiFi Connected", WiFi.localIP().toString().c_str());
+    String ip = WiFi.localIP().toString();
+    displayMessage("WiFi Connected", ip.c_str());
     feedbackSuccess();
     delay(1000);
 
