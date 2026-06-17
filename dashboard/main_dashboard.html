@@ -1,0 +1,520 @@
+<style>
+    :root {
+        --blue: #2563eb;
+        --blue-dark: #1d4ed8;
+        --green: #16a34a;
+        --green-bg: #052e16;
+        --red: #dc2526;
+        --red-bg: #450a0a;
+        --bg: #09090b;
+        --card: #18181b;
+        --border: #27272a;
+        --text: #f4f4f5;
+        --muted: #71717a;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+    }
+
+    .wrap {
+        padding: 20px;
+        max-width: 900px;
+        position: relative;
+    }
+
+    .login-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        min-height: 600px;
+        background: var(--bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+    }
+
+    .login-box {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 40px 48px;
+        text-align: center;
+        width: 320px;
+    }
+
+    .login-box .logo {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 4px;
+    }
+
+    .login-box .sub {
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 28px;
+    }
+
+    .pin-input {
+        width: 100%;
+        background: #09090b;
+        border: 1px solid var(--border);
+        color: var(--text);
+        padding: 12px;
+        border-radius: 10px;
+        font-size: 22px;
+        text-align: center;
+        letter-spacing: 10px;
+        margin-bottom: 16px;
+        outline: none;
+    }
+
+    .pin-input:focus {
+        border-color: var(--blue);
+    }
+
+    .btn-login {
+        width: 100%;
+        padding: 12px;
+        background: var(--blue);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .btn-login:hover {
+        background: var(--blue-dark);
+    }
+
+    .login-err {
+        color: #f87171;
+        font-size: 13px;
+        margin-top: 10px;
+        min-height: 18px;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .header-title {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .header-right {
+        font-size: 12px;
+        color: var(--muted);
+    }
+
+    .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 20px;
+        margin-bottom: 16px;
+    }
+
+    .section-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 14px;
+    }
+
+    .no-card {
+        text-align: center;
+        padding: 48px 20px;
+    }
+
+    .no-card .icon {
+        font-size: 40px;
+        margin-bottom: 12px;
+    }
+
+    .no-card .title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #52525b;
+        margin-bottom: 4px;
+    }
+
+    .no-card .hint {
+        font-size: 13px;
+        color: var(--muted);
+    }
+
+    .acc-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .acc-name {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 4px;
+    }
+
+    .acc-uid {
+        font-size: 11px;
+        color: var(--muted);
+        font-family: monospace;
+        margin-bottom: 8px;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 600;
+    }
+
+    .badge-active {
+        background: var(--green-bg);
+        color: #4ade80;
+        border: 1px solid var(--red);
+    }
+
+    .badge-frozen {
+        background: var(--red-bg);
+        color: #f87171;
+        border: 1px solid var(--red);
+    }
+
+    .balance-label {
+        font-size: 11px;
+        color: var(--muted);
+        text-align: right;
+        margin-bottom: 4px;
+    }
+
+    .balance-amount {
+        font-size: 32px;
+        font-weight: 800;
+        color: #4ade80;
+        text-align: right;
+    }
+
+    .acc-since {
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 10px;
+    }
+
+    .txn-row {
+        display: flex;
+        gap: 10px;
+        align-items: flex-end;
+        flex-wrap: wrap;
+    }
+
+    .txn-input-wrap {
+        flex: 1;
+        min-width: 160px;
+    }
+
+    .txn-label {
+        font-size: 12px;
+        color: var(--muted);
+        margin-bottom: 6px;
+    }
+
+    .txn-input {
+        width: 100%;
+        background: #09090b;
+        border: 1px solid var(--border);
+        color: var(--text);
+        padding: 11px 14px;
+        border-radius: 10px;
+        font-size: 16px;
+        outline: none;
+    }
+
+    .txn-input:focus {
+        border-color: var(--blue);
+    }
+
+    .btn-txn {
+        padding: 11px 22px;
+        border: none;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    .btn-deposit {
+        background: var(--green);
+        color: #fff;
+    }
+
+    .btn-deposit:hover {
+        background: #15803d;
+    }
+
+    .btn-withdraw {
+        background: var(--red);
+        color: #fff;
+    }
+
+    .btn-withdraw:hover {
+        background: #b91c1c;
+    }
+
+    .toast {
+        padding: 12px 16px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 16px;
+        display: none;
+    }
+
+    .toast.success {
+        background: var(--green-bg);
+        color: #4ade80;
+        border: 1px solid var(--green);
+        display: block;
+    }
+
+    .toast.error {
+        background: var(--red-bg);
+        color: #f87171;
+        border: 1px solid var(--red);
+        display: block;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+    }
+
+    th {
+        color: var(--muted);
+        font-weight: 500;
+        padding: 8px 10px;
+        text-align: left;
+        border-bottom: 1px solid var(--border);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #1f1f23;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+
+    .amt-deposit {
+        color: #4ade80;
+        font-weight: 600;
+    }
+
+    .amt-withdraw {
+        color: #f87171;
+        font-weight: 600;
+    }
+</style>
+
+<div class="wrap">
+    
+    <div class="login-overlay" id="login-overlay">
+        <div class="login-box">
+            <div class="logo">NexLedger</div>
+            <div class="sub">Teller Station. Enter PIN to continue</div>
+            <input class="pin-input" type="password" id="op-pin" maxlength="6" placeholder="••••" />
+            <button class="btn-login" id="op-unlock-btn">Unlock</button>
+            <div class="login-err" id="op-err"></div>
+        </div>
+    </div>
+
+    <div id="main-content" style="display: none;">
+
+        <div class="header">
+            <div class="header-title">Teller Station</div>
+            <div class="header-right">Operator logged in</div>
+        </div>
+
+        <div class="toast" id="toast"></div>
+
+        <div class="card no-card" id="no-card">
+            <div class="icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#52525b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="5" width="20" height="14" rx="2" />
+                    <line x1="2" y1="10" x2="22" y2="10" />
+                </svg>
+            </div>
+            <div class="title">Waiting for card scan</div>
+            <div class="hint">Ask the costumer to tap their card on the reader</div>
+        </div>
+
+        <div id="account-panel" style="display: none;">
+
+            <div class="card">
+                <div class="section-label">Account</div>
+                <div class="acc-row">
+                    <div>
+                        <div class="acc-name" id="acc-name">-</div>
+                        <div class="acc-uid" id="acc-uid">-</div>
+                        <span class="badge badge-active" id="acc-badge">Active</span>
+                    </div>
+                    <div>
+                        <div class="balance-label">Balance</div>
+                        <div class="balance-amount" id="acc-balance">Rs. 0.00</div>
+                    </div>
+                </div>
+                <div class="acc-since" id="acc-since"></div>
+            </div>
+
+            <div class="card">
+                <div class="section-label">Transaction</div>
+                <div class="txn-row">
+                    <div class="txn-input-wrap">
+                        <div class="txn-label">Amount(Rs.)</div>
+                        <input class="txn-input" type="number" id="txn-amount" placeholder="0.00" min="1" />
+                    </div>
+                    <button class="btn-txn btn-deposit" id="btn-deposit">Deposit</button>
+                    <button class="btn-txn btn-withdraw" id="btn-withdraw">Withdraw</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="section-label">Transaction History</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody id="txn-history">
+                        <tr>
+                            <td colspan="4" style="text-align: center; color: #52525b; padding: 20px;">No transactions yet</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        var OP_PIN = '12345';
+
+        function checkOpPin() {
+            var pin = document.getElementById('op-pin').value;
+            if(pin === OP_PIN) {
+                document.getElementById('login-overlay').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+            } else {
+                document.getElementById('op-err').innerText = 'Incorrect PIN. Try again.';
+                document.getElementById('op-pin').value = '';
+                setTimeout(function() {
+                    document.getElementById('op-err').innerText = '';
+                }, 2500);
+            }
+        }
+
+        function showToast(msg, success) {
+            var t = document.getElementById('toast');
+            t.className = 'toast' + (success ? 'success' : 'error');
+            t.innerText = msg;
+            setTimeout(function() {t.className = 'toast';}, 3500);
+        }
+
+        function doTxn(type) {
+            var amount = parseFloat(document.getElementById('txn-amount').value);
+            if (!amount || amount <= 0) {
+                showToast('Enter a valid amount', false);
+                return;
+            }
+            $scope.send({payload: {action: type, amount: amount} });
+        }
+
+        document.getElementById('op-unlock-btn').addEventListener('click', checkOpPin);
+        document.getElementById('op-pin').addEventListener('keydown',function(e) {
+            if (e.key === 'Enter') checkOpPin();
+        });
+        document.getElementById('btn-deposit').addEventListener('click', function() { doTxn('deposit'); });
+        document.getElementById('btn-withdraw').addEventListener('click', function() { doTxn('withdraw'); });
+
+        $scope.$watch('msg', function(msg) {
+            if (!msg || !msg.payload) return;
+            var data = msg.payload;
+
+            if (data.type === 'account') {
+                document.getElementById('no-card').style.display = 'none';
+                document.getElementById('account-panel').style.display = 'block';
+                document.getElementById('account-name').innerText = data.name;
+                document.getElementById('acc-uid').innerText = 'UID: ' + data.uid;
+                document.getElementById('acc-balance').innerText = 'Rs. ' + parseFloat(data.balance).toFixed(2);
+                document.getElementById('acc-since').innerText = data.created_at ? 'Member since ' + data.created_at: '';
+                document.getElementById('txn-amount').value = '';
+                var badge = document.getElementById('acc-badge');
+                badge.innerText = data.status === 'active' ? 'Active' : 'Frozen';
+                badge.className = 'badge badge-' + data.status;
+            }
+
+            if (data.type === 'history') {
+                var tbody = document.getElementById('txn-history');
+                if (!data.rows || data.rows.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; color: #52525b; padding: 20px;">No transactions yet</td></tr>';
+                } else {
+                    tbody.innerHTML = '';
+                    data.rows.forEach(function(r) {
+                        var tr = document.createElement('tr');
+                        var cls = r.type === 'deposit' ? 'amt-deposit' : 'amt-withdraw';
+                        var sign = r.type === 'deposit' ? '+' : '-';
+                        var type = r.type.charAt(0).toUpperCase() + r.type.slice(1);
+                        tr.innerHTML = 
+                            '<td>' + r.timestamp + '</td>' +
+                            '<td>' + type + '</td>' +
+                            '<td class = "' + cls + '">' + sign + 'Rs. ' + parseFloat(r.amount).toFixed(2) + '</td>' +
+                            '<td>Rs. ' + parseFloat(r.balance_after).toFixed(2) + '</td>';
+                        tbody.appendChild(tr);
+                    });
+                }
+            }
+
+            if (data.type === 'txn_result') {
+                showToast(data.message, data.success);
+                if (data.success) {
+                    document.getElementById('acc-balance').innerText = 'Rs. ' + parseFloat(data.newBalance).toFixed(2);
+                    document.getElementById('txn-amount').value = '';
+                }
+            }
+        });
+    })();
+</script>
