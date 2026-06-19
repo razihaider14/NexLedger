@@ -15,7 +15,7 @@ static void saveParamsCallback() {
     Preferences prefs;
     prefs.begin("nexledger", false);
     prefs.putString("mqtt_ip", param_mqtt_ip.getValue());
-    prefs.putString("mqtt_user", pram_mqtt_user.getValue());
+    prefs.putString("mqtt_user", param_mqtt_user.getValue());
     prefs.putString("mqtt_pass", param_mqtt_pass.getValue());
     prefs.end();
 }
@@ -33,7 +33,7 @@ void setup() {
     wm.setSaveParamsCallback(saveParamsCallback);
     wm.setConfigPortalTimeout(180);
 
-    displayMessage("Connecting..." "to WiFi");
+    displayMessage("Connecting...", "to WiFi");
 
     if (!wm.autoConnect("NexLedger-Setup")) {
         displayMessage("WiFi Failed", "Restarting...");
