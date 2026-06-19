@@ -32,7 +32,7 @@ void rfidInit() {
 
 void rfidUpdate() {
     if (!mfrc522.PICC_IsNewCardPresent()) return;
-    if (!mfrc522,PICC_ReadCardSerial()) return;
+    if (!mfrc522.PICC_ReadCardSerial()) return;
 
     unsigned long now = millis();
     if (now - lastScanTime < SCAN_COOLDOWN) return;
