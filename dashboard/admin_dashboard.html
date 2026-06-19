@@ -1,0 +1,515 @@
+<style>
+    :root {
+        --blue: #2563eb;
+        --blue-dark: #1d4ed8;
+        --green: #16a34a;
+        --green-bg: #052e16;
+        --red: #dc2626;
+        --red-bg: #450a0a;
+        --bg: #09090b;
+        --card: #18181b;
+        --border: #27272a;
+        --text: #f4f4f5;
+        --muted: #71717a;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+    }
+
+    .wrap {
+        padding: 20px;
+        max-width: 900px;
+        position: relative;
+    }
+
+    .login-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        min-height: 600px;
+        background: var(--bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+    }
+
+    .login-box {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 40px 48px;
+        text-align: center;
+        width: 320px;
+    }
+
+    .login-box .logo {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 4px;
+    }
+
+    .login-box .sub {
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 28px;
+    }
+
+    .pin-input {
+        width: 100%;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        color: var(--text);
+        padding: 12px;
+        border-radius: 10px;
+        font-size: 22px;
+        text-align: center;
+        letter-spacing: 10px;
+        margin-bottom: 16px;
+        outline: none;
+    }
+
+    .pin-input:focus {
+        border-color: var(--blue);
+    }
+
+    .btn-login {
+        width: 100%;
+        padding: 12px;
+        background: var(--blue);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .btn-login:hover {
+        background: var(--blue-dark);
+    }
+
+    .login-err {
+        color: #f87171;
+        font-size: 13px;
+        margin-top: 10px;
+        min-height: 18px;
+    }
+
+    .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 20px;
+        margin-bottom: 16px;
+    }
+
+    .section-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 14px;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .header-title {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    input {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        color: var(--text);
+        padding: 10px 14px;
+        border-radius: 10px;
+        font-size: 14px;
+        outline: none;
+    }
+
+    input:focus {
+        border-color: var(--blue);
+    }
+
+    .input-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        margin-bottom: 14px;
+    }
+
+    .input-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .input-label {
+        font-size: 12px;
+        color: var(--muted);
+    }
+
+    .btn {
+        padding: 10px 18px;
+        border: none;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background: var(--blue);
+        color: #fff;
+    }
+
+    .btn-primary:hover {
+        background: var(--blue-dark);
+    }
+
+    .btn-danger {
+        background: var(--red);
+        color: #fff;
+    }
+
+    .btn-danger:hover {
+        background: #b91c1c;
+    }
+
+    .btn-warn {
+        background: #d97705;
+        color: #fff;
+    }
+
+    .btn-warn:hover {
+        background: #b45309;
+    }
+
+    .btn-success {
+        background: var(--green);
+        color: #fff;
+    }
+
+    .btn-success:hover {
+        background: #15803d;
+    }
+
+    .btn-ghost {
+        background: #27272a;
+        color: var(--text);
+    }
+
+    .btn-ghost:hover {
+        background: #3f3f46;
+    }
+
+    .uid-box {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 8px 14px;
+        font-family: monospace;
+        font-size: 15px;
+        color: #4ade80;
+        display: inline-block;
+        letter-spacing: 2px;
+        margin: 8px 0;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+    }
+
+    th {
+        color: var(--muted);
+        font-weight: 500;
+        padding: 8px 10px;
+        text-align: left;
+        border-bottom: 1px solid var(--border);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #1f1f23;
+        vertical-align: middle;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 600;
+    }
+
+    .badge-active {
+        background: var(--green-bg);
+        color: #4ade80;
+        border: 1px solid var(--green);
+    }
+
+    .badge-frozen {
+        background: var(--red-bg);
+        color: #f87171;
+        border: 1px solid var(--red);
+    }
+
+    .toast {
+        padding: 12px 16px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 16px;
+        display: none;
+    }
+
+    .toast.success {
+        background: var(--green-bg);
+        color: #4ade80;
+        border: 1px solid var(--green);
+        display: block;
+    }
+
+    .toast.error {
+        background: var(--red-bg);
+        color: #f87171;
+        border: 1px solid var(--red);
+        display: block;
+    }
+
+    .actions {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+</style>
+
+<div class="wrap">
+    <div class="login-overlay" id="admin-login-overlay">
+        <div class="login-box">
+            <div class="logo">NexLedger</div>
+            <div class="sub">Admin Panel. Enter PIN to continue</div>
+            <input class="pin-input" type="password" id="admin-pin" maxlength="6" placeholder="••••" />
+            <button class="btn-login" id="admin-unlock-button">Unlock</button>
+            <div class="login-err" id="admin-err"></div>
+        </div>
+    </div>
+
+    <div id="admin-content" style="display: none;">
+        <div class="header">
+            <div class="header-title">Admin Panel</div>
+        </div>
+
+        <div class="toast" id="admin-toast"></div>
+
+        <div class="card">
+            <div class="section-label">Enroll New Card</div>
+            <button class="btn btn-primary" id="start-enroll-btn">Start Enroll Mode on Device</button>
+            <div id="enroll-section" style="display: none; margin-top: 16px;">
+                <div style="margin-bottom: 10px; color: #71717a; font-size: 13px;">Scanned UID:</div>
+                <div class="uid-box" id="enroll-uid">-</div>
+                <div class="input-row" style="margin-top: 14px;">
+                    <div class="input-wrap">
+                        <div class="input-label">Full Name</div>
+                        <input type="text" id="enroll-name" placeholder="e.g. James Bond" style="width: 200px;" />
+                    </div>
+                    <button class="btn btn-success" id="submit-enroll-btn">Register Card</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="section-label">All Accounts</div>
+            <div style="margin-bottom: 14px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                <input type="text" id="search-input" placeholder="Search by name or UID..." style="width: 260px;" />
+                <button class="btn btn-ghost" id="refresh-btn">Refresh</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>UID</th>
+                        <th>Balance</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="accounts-body">
+                    <tr>
+                        <td colspan="5" style="text-align: center; color: #52525b; padding: 20px;">No accounts yet</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        var ADMIN_PIN = '1234';
+        var allAccounts = [];
+
+        function checkAdminPin() {
+            var pin = document.getElementById('admin-pin').value;
+            if (pin === ADMIN_PIN) {
+                document.getElementById('admin-login-overlay').style.display = 'none';
+                document.getElementById('admin-content').style.display = 'block';
+                loadAccounts();
+            } else {
+                document.getElementById('admin-err').innerText = 'Incorrect PIN';
+                document.getElementById('admin-pin').value = '';
+                setTimeout(function() {
+                    document.getElementById('admin-err').innerText = '';
+                }, 2500);
+            }
+        }
+
+        function showToast(msg, success) {
+            var t = document.getElementById('admin-toast');
+            t.className = 'toast' + (success ? 'success' : 'error');
+            t.innerText = msg;
+            setTimeout(function() { t.className = 'toast';}, 3500);
+        }
+
+        function loadAccounts() {
+            $scope.send({ payload: { action: 'load_accounts'}});
+        }
+
+        function startEnroll() {
+            $scope.send({ payload: { action: 'start_enroll'}});
+        }
+
+        function submitEnroll() {
+            var uid = document.getElementById('enroll-uid').innerText.trim();
+            var name = document.getElementById('enroll-name').value.trim();
+            var balance = parseFloat(document.getElementById('enroll-balance').value) || 0;
+            if (!uid || uid === '-' || !name) {
+                showToast('Fill all fields and scan a card first', false);
+                return;
+            }
+            $scope.send({ payload: { action: 'enroll', uid: uid, name: name, balance: balance}});
+        }
+
+        function toggleFreeze(uid, status) {
+            var newStatus = status === 'active' ? 'frozen' : 'active';
+            $scope.send({ payload: { action: 'set_status', uid: uid, status: newStatus}});
+        }
+
+        function editAccount(uid, name, balance) {
+            var newName = prompt('Edit name:', name);
+            if (newName === null) return;
+            var newBalance = prompt('Edit balance (Rs.):', balance);
+            if (newBalance === null) return;
+            $scope.send({ payload: { action: 'edit', uid: uid, name: newName.trim(), balance: parseFloat(newBalance) || 0}});
+        }
+
+        function deleteAccount(uid, name) {
+            if (!confirm('Delete account for ' + name + '? This cannot be undone.')) return;
+            $scope.send({ payload: { action: 'delete', uid: uid}});
+        }
+
+        function renderTable(accounts) {
+            var tbody = document.getElementById('accounts-body');
+            if (!accounts || accounts.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: #52525b; padding: 20px;">No accounts found</td></tr>';
+                return;
+            }
+            tbody.innerHTML = '';
+            accounts.forEach(function(a) {
+                var tr = document.createElement('tr');
+                var isActive = a.status === 'active';
+                var badgeClass = isActive ? 'badge-active' : 'badge-frozen';
+                var badgeLabel = isActive ? 'Active' : 'Frozen';
+                var freezeLabel = isActive ? 'Freeze' : 'Unfreeze';
+                var freezeClass = isActive ? 'btn-warn' : 'btn-success';
+                tr.innerHTML = 
+                    '<td style="font-weight: 500;">' + a.name + '</td>' +
+                    '<td stle="font-family: monospace; font-size: 11px; color: #71717a;">' + a.uid + '</td>' +
+                    '<td>Rs. ' + parseFloat(a.balance).toFixed(2) + '</td>' +
+                    '<td><span class="badge ' + badgeClass + '">' + badgeLabel + '</span></td>' +
+                    '<td><div class="actions">' +
+                        '<button class="btn ' + freezeClass + '" data-uid="' + a.uid + '" data-name="' + a.name + '" data-balance="' + a.balance + '" data-action="freeze">' + freezeLabel + '</button>' +
+                        '<button class="btn btn-ghost" data-uid="' + a.uid + '" data-name="' + a.name + '" data-balance="' + a.balance + '" data-action="edit">Edit</button>' +
+                        '<button class="btn btn-danger" data-uid="' + a.uid + '" data-name="' + a.name + '" data-action="delete">Delete</button>' +
+                    '</div></td>';
+                tbody.appendChild(tr);
+            });
+        }
+
+        document.getElementById('accounts-body').addEventListener('click', function(e) {
+            var btn = e.target.closest('button');
+            if (!btn) return;
+            var action = btn.getAttribute('data-action');
+            var uid = btn.getAttribute('data-uid');
+            if (action === 'freeze') toggleFreeze(uid, btn.getAttribute('data-status'));
+            if (action === 'edit') editAccount(uid, btn.getAttribute('data-name'), btn.getAttribute('data-balance'));
+            if (action === 'delete') deleteAccount(uid, btn.getAttribute('data-name'));
+        });
+
+        document.getElementById('admin-unlock-btn').addEventListener('click', checkAdminPin);
+        document.getElementById('admin-pin').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') checkAdminPin();
+        });
+        document.getElementById('start-enroll-btn').addEventListener('click', startEnroll);
+        document.getElementById('submit-enroll-btn').addEventListener('click', submitEnroll);
+        document.getElementById('refresh-btn').addEventListener('click', loadAccounts);
+        document.getElementById('search-input').addEventListener('input', function() {
+            var q = this.value.toLowerCase();
+            renderTable(allAccounts.filter(function(a) {
+                return a.name.toLowerCase().includes(q) || a.uid.toLowerCase().includes(q);
+            }));
+        });
+
+        $scope.$watch('msg', function(msg) {
+            if (!msg || !msg.payload) return;
+            var data = msg.payload;
+            if (data.type === 'uid_scanned') {
+                document.getElementById('enroll-section').style.display = 'block';
+                document.getElementById('enroll-uid').innerText = data.uid;
+            }
+            if (data.type === 'accounts_list') {
+                allAccounts = data.accounts || [];
+                renderTable(allAccounts);
+            }
+            if (data.type === 'admin_result') {
+                showToast(data.message, data.success);
+                if (data.success) loadAccounts();
+                if (data.resetEnroll) {
+                    document.getElementById('enroll-uid').innerText = '-';
+                    document.getElementById('enroll-name').vaue = '';
+                    document.getElementById('enroll-balance').value = '';
+                    document.getElementById('enroll-section').style.display = 'none';
+                }
+            }
+        });
+    })();
+</script>
