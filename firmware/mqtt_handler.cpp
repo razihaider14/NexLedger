@@ -22,7 +22,7 @@ extern bool enrollMode;
 static void onMessage(char* topic, byte* payload, unsigned int length) {
     String t = String(topic);
     String msg = "";
-    for (unsigned int i = 0, i < length; i++) msg += (char)payload[i];
+    for (unsigned int i = 0; i < length; i++) msg += (char)payload[i];
 
     if (t == TOPIC_RESULT) {
         StaticJsonDocument<256> doc;
