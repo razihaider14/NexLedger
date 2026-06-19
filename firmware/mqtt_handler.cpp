@@ -112,5 +112,5 @@ void mqttPublishScan(const String& uid) {
     doc["uid"] = uid;
     char buf[64];
     serializeJson(doc, buf);
-    mqttClient.publish(TOPIC_ENROLL_SCANNED, buf);
+    mqttClient.publish(TOPIC_SCAN, buf);
 }
