@@ -15,7 +15,7 @@ void displayClear() {
     lcd.clear();
 }
 
-void displayMessage(const char* line1, const char* line 2) {
+void displayMessage(const char* line1, const char* line2) {
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print(line1);
