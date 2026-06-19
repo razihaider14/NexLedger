@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Arduino.h>
+
 void mqttInit();
 void mqttUpdate();
 void mqttPublishScan(const String& uid);
