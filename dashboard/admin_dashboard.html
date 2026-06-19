@@ -405,11 +405,11 @@
         }
 
         function loadAccounts() {
-            $scope.send({ payload: { action: 'load_accounts'}});
+            scope.send({ payload: { action: 'load_accounts'}});
         }
 
         function startEnroll() {
-            $scope.send({ payload: { action: 'start_enroll'}});
+            scope.send({ payload: { action: 'start_enroll'}});
         }
 
         function submitEnroll() {
@@ -420,12 +420,12 @@
                 showToast('Fill all fields and scan a card first', false);
                 return;
             }
-            $scope.send({ payload: { action: 'enroll', uid: uid, name: name, balance: balance}});
+            scope.send({ payload: { action: 'enroll', uid: uid, name: name, balance: balance}});
         }
 
         function toggleFreeze(uid, status) {
             var newStatus = status === 'active' ? 'frozen' : 'active';
-            $scope.send({ payload: { action: 'set_status', uid: uid, status: newStatus}});
+            scope.send({ payload: { action: 'set_status', uid: uid, status: newStatus}});
         }
 
         function editAccount(uid, name, balance) {
@@ -433,12 +433,12 @@
             if (newName === null) return;
             var newBalance = prompt('Edit balance (Rs.):', balance);
             if (newBalance === null) return;
-            $scope.send({ payload: { action: 'edit', uid: uid, name: newName.trim(), balance: parseFloat(newBalance) || 0}});
+            scope.send({ payload: { action: 'edit', uid: uid, name: newName.trim(), balance: parseFloat(newBalance) || 0}});
         }
 
         function deleteAccount(uid, name) {
             if (!confirm('Delete account for ' + name + '? This cannot be undone.')) return;
-            $scope.send({ payload: { action: 'delete', uid: uid}});
+            scope.send({ payload: { action: 'delete', uid: uid}});
         }
 
         function renderTable(accounts) {
@@ -493,7 +493,7 @@
             }));
         });
 
-        $scope.$watch('msg', function(msg) {
+        scope.$watch('msg', function(msg) {
             if (!msg || !msg.payload) return;
             var data = msg.payload;
             if (data.type === 'uid_scanned') {

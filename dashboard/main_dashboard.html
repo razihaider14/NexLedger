@@ -460,7 +460,7 @@
                 showToast('Enter a valid amount', false);
                 return;
             }
-            $scope.send({payload: {action: type, amount: amount} });
+            scope.send({payload: {action: type, amount: amount} });
         }
 
         document.getElementById('op-unlock-btn').addEventListener('click', checkOpPin);
@@ -470,7 +470,7 @@
         document.getElementById('btn-deposit').addEventListener('click', function() { doTxn('deposit'); });
         document.getElementById('btn-withdraw').addEventListener('click', function() { doTxn('withdraw'); });
 
-        $scope.$watch('msg', function(msg) {
+        scope.$watch('msg', function(msg) {
             if (!msg || !msg.payload) return;
             var data = msg.payload;
 
