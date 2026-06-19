@@ -12,6 +12,10 @@ static WiFiClientSecure secureClient;
 static PubSubClient mqttClient(secureClient);
 static Preferences prefs;
 
+static String mqttBroker = "";
+static String mqttUser = "";
+static String mqttPassword = "";
+
 static unsigned long lastHeartbeat = 0;
 static unsigned long lastReconnectAt = 0;
 #define RECONNECT_INTERVAL 5000
