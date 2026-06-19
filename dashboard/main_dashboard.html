@@ -194,7 +194,7 @@
     .badge-active {
         background: var(--green-bg);
         color: #4ade80;
-        border: 1px solid var(--red);
+        border: 1px solid var(--green);
     }
 
     .badge-frozen {
@@ -449,7 +449,7 @@
 
         function showToast(msg, success) {
             var t = document.getElementById('toast');
-            t.className = 'toast' + (success ? 'success' : 'error');
+            t.className = 'toast ' + (success ? 'success' : 'error');
             t.innerText = msg;
             setTimeout(function() {t.className = 'toast';}, 3500);
         }
@@ -477,7 +477,7 @@
             if (data.type === 'account') {
                 document.getElementById('no-card').style.display = 'none';
                 document.getElementById('account-panel').style.display = 'block';
-                document.getElementById('account-name').innerText = data.name;
+                document.getElementById('acc-name').innerText = data.name;
                 document.getElementById('acc-uid').innerText = 'UID: ' + data.uid;
                 document.getElementById('acc-balance').innerText = 'Rs. ' + parseFloat(data.balance).toFixed(2);
                 document.getElementById('acc-since').innerText = data.created_at ? 'Member since ' + data.created_at: '';
@@ -501,7 +501,7 @@
                         tr.innerHTML = 
                             '<td>' + r.timestamp + '</td>' +
                             '<td>' + type + '</td>' +
-                            '<td class = "' + cls + '">' + sign + 'Rs. ' + parseFloat(r.amount).toFixed(2) + '</td>' +
+                            '<td class = "' + cls + '">' + sign + ' Rs. ' + parseFloat(r.amount).toFixed(2) + '</td>' +
                             '<td>Rs. ' + parseFloat(r.balance_after).toFixed(2) + '</td>';
                         tbody.appendChild(tr);
                     });

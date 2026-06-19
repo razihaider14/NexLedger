@@ -342,6 +342,10 @@
                         <div class="input-label">Full Name</div>
                         <input type="text" id="enroll-name" placeholder="e.g. James Bond" style="width: 200px;" />
                     </div>
+                    <div class="input-wrap">
+                        <div class="input-label">Initial Balance (Rs.)</div>
+                        <input type="number" id="enroll-balance" placeholder="0.00" min="0" style="width: 160px;" />
+                    </div>
                     <button class="btn btn-success" id="submit-enroll-btn">Register Card</button>
                 </div>
             </div>
@@ -395,7 +399,7 @@
 
         function showToast(msg, success) {
             var t = document.getElementById('admin-toast');
-            t.className = 'toast' + (success ? 'success' : 'error');
+            t.className = 'toast ' + (success ? 'success' : 'error');
             t.innerText = msg;
             setTimeout(function() { t.className = 'toast';}, 3500);
         }
@@ -453,11 +457,11 @@
                 var freezeClass = isActive ? 'btn-warn' : 'btn-success';
                 tr.innerHTML = 
                     '<td style="font-weight: 500;">' + a.name + '</td>' +
-                    '<td stle="font-family: monospace; font-size: 11px; color: #71717a;">' + a.uid + '</td>' +
+                    '<td style="font-family: monospace; font-size: 11px; color: #71717a;">' + a.uid + '</td>' +
                     '<td>Rs. ' + parseFloat(a.balance).toFixed(2) + '</td>' +
                     '<td><span class="badge ' + badgeClass + '">' + badgeLabel + '</span></td>' +
                     '<td><div class="actions">' +
-                        '<button class="btn ' + freezeClass + '" data-uid="' + a.uid + '" data-name="' + a.name + '" data-balance="' + a.balance + '" data-action="freeze">' + freezeLabel + '</button>' +
+                        '<button class="btn ' + freezeClass + '" data-uid="' + a.uid + '" data-status="' + a.status + '" data-action="freeze">' + freezeLabel + '</button>' +
                         '<button class="btn btn-ghost" data-uid="' + a.uid + '" data-name="' + a.name + '" data-balance="' + a.balance + '" data-action="edit">Edit</button>' +
                         '<button class="btn btn-danger" data-uid="' + a.uid + '" data-name="' + a.name + '" data-action="delete">Delete</button>' +
                     '</div></td>';
@@ -475,7 +479,7 @@
             if (action === 'delete') deleteAccount(uid, btn.getAttribute('data-name'));
         });
 
-        document.getElementById('admin-unlock-btn').addEventListener('click', checkAdminPin);
+        document.getElementById('admin-unlock-button').addEventListener('click', checkAdminPin);
         document.getElementById('admin-pin').addEventListener('keydown', function(e) {
             if (e.key === 'Enter') checkAdminPin();
         });
@@ -505,7 +509,7 @@
                 if (data.success) loadAccounts();
                 if (data.resetEnroll) {
                     document.getElementById('enroll-uid').innerText = '-';
-                    document.getElementById('enroll-name').vaue = '';
+                    document.getElementById('enroll-name').value = '';
                     document.getElementById('enroll-balance').value = '';
                     document.getElementById('enroll-section').style.display = 'none';
                 }
