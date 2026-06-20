@@ -40,6 +40,7 @@ void rfidUpdate() {
 
     String uid = getUID(mfrc522.uid);
     mfrc522.PICC_HaltA();
+    mfrc522.PCD_StopCrypto1();
 
     if (enrollMode) {
         mqttPublishEnrollScanned(uid);
