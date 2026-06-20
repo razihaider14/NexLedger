@@ -487,6 +487,12 @@
                 badge.className = 'badge badge-' + data.status;
             }
 
+            if (data.type === 'declined') {
+                document.getElementById('account-panel').style.display = 'none';
+                document.getElementById('no-card').style.display = 'block';
+                showToast(data.reason, false);
+            }
+
             if (data.type === 'history') {
                 var tbody = document.getElementById('txn-history');
                 if (!data.rows || data.rows.length === 0) {
