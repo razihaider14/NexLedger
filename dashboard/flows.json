@@ -1,0 +1,1036 @@
+[
+    {
+        "id": "ce600122c2c4e8c5",
+        "type": "tab",
+        "label": "NexLedger",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "f37e16cc43d8a1bb",
+        "type": "tab",
+        "label": "NexLedger Admin",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4573c4a09abbd839",
+        "type": "tls-config",
+        "name": "RPi TLS",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "rpi_ca.crt",
+        "servername": "",
+        "verifyservercert": false,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "1889ade0a1e00edf",
+        "type": "mqtt-broker",
+        "name": "Mosquitto Rpi",
+        "broker": "192.168.100.13",
+        "port": "8883",
+        "tls": "4573c4a09abbd839",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "6b9be453d6e0a1b1",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "9cdfc6d37f697535",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#2563eb",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#2563eb",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#2563eb",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#6b95f1",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#2563eb",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "66db0d6147ac1ac5",
+        "type": "ui_group",
+        "name": "Controls",
+        "tab": "6b9be453d6e0a1b1",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "25d827e9867cdb56",
+        "type": "ui_group",
+        "name": "Gauges",
+        "tab": "6b9be453d6e0a1b1",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "480f861a112624e1",
+        "type": "ui_group",
+        "name": "Table",
+        "tab": "6b9be453d6e0a1b1",
+        "order": 3,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ui_tab_main",
+        "type": "ui_tab",
+        "name": "RemoteLock",
+        "icon": "lock",
+        "order": 1
+    },
+    {
+        "id": "ui_group_lock",
+        "type": "ui_group",
+        "name": "Lock Control",
+        "tab": "ui_tab_main",
+        "order": 1,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "ui_group_security",
+        "type": "ui_group",
+        "name": "Security Level",
+        "tab": "ui_tab_main",
+        "order": 2,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "ui_group_totp",
+        "type": "ui_group",
+        "name": "TOTP (High Security)",
+        "tab": "ui_tab_main",
+        "order": 3,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "7c354ee1708f3f1e",
+        "type": "ui_group",
+        "name": "RemoteLock",
+        "tab": "ui_tab_main",
+        "order": 1,
+        "disp": false,
+        "width": "18",
+        "collapse": false
+    },
+    {
+        "id": "c4adc20412d389e4",
+        "type": "ui_tab",
+        "name": "RemoteLock",
+        "icon": "lock",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "26a59c501ce6242b",
+        "type": "ui_group",
+        "name": "Header",
+        "tab": "c4adc20412d389e4",
+        "order": 1,
+        "disp": false,
+        "width": "24",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b9fbd15255f00da6",
+        "type": "ui_group",
+        "name": "Lock Control",
+        "tab": "c4adc20412d389e4",
+        "order": 2,
+        "disp": false,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3d94e6b0eb356da5",
+        "type": "ui_group",
+        "name": "Security Level",
+        "tab": "c4adc20412d389e4",
+        "order": 3,
+        "disp": false,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "629e01bbe531b587",
+        "type": "ui_group",
+        "name": "TOTP",
+        "tab": "c4adc20412d389e4",
+        "order": 4,
+        "disp": false,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "sqlite-db",
+        "type": "sqlitedb",
+        "db": "/home/razi/access_control.db",
+        "mode": "RWC"
+    },
+    {
+        "id": "ui-tab-main",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "ui-tab-admin",
+        "type": "ui_tab",
+        "name": "Admin",
+        "icon": "lock",
+        "order": 2
+    },
+    {
+        "id": "ui-group-main",
+        "type": "ui_group",
+        "name": "Main",
+        "tab": "ui-tab-main",
+        "order": 1,
+        "disp": false,
+        "width": "24"
+    },
+    {
+        "id": "ui-group-admin",
+        "type": "ui_group",
+        "name": "Admin",
+        "tab": "ui-tab-admin",
+        "order": 1,
+        "disp": false,
+        "width": "24"
+    },
+    {
+        "id": "ui_tab_teller",
+        "type": "ui_tab",
+        "name": "NexLedger",
+        "icon": "credit_card",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ui_tab_admin",
+        "type": "ui_tab",
+        "name": "Admin",
+        "icon": "admin_panel_settings",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "grp_teller",
+        "type": "ui_group",
+        "name": "Teller Station",
+        "tab": "ui_tab_teller",
+        "order": 1,
+        "disp": false,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "grp_admin",
+        "type": "ui_group",
+        "name": "Admin Panel",
+        "tab": "ui_tab_admin",
+        "order": 1,
+        "disp": false,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "a9ec79ed486e0ab4",
+        "type": "sqlitedb",
+        "db": "/home/razi/nexledger/nexledger.db",
+        "mode": "RWC"
+    },
+    {
+        "id": "a71821b05680f374",
+        "type": "inject",
+        "z": "ce600122c2c4e8c5",
+        "name": "Init DB on Deploy",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 60,
+        "wires": [
+            [
+                "21ad9c0456dc34f6"
+            ]
+        ]
+    },
+    {
+        "id": "21ad9c0456dc34f6",
+        "type": "function",
+        "z": "ce600122c2c4e8c5",
+        "name": "Create Tables",
+        "func": "msg.topic = `CREATE TABLE IF NOT EXISTS accounts (uid TEXT PRIMARY KEY, name TEXT NOT NULL, balance REAL DEFAULT 0, status TEXT DEFAULT 'active', created_at TEXT DEFAULT (datetime('now','localtime')))`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 60,
+        "wires": [
+            [
+                "5e93b321d06087b7"
+            ]
+        ]
+    },
+    {
+        "id": "5e93b321d06087b7",
+        "type": "sqlite",
+        "z": "ce600122c2c4e8c5",
+        "mydb": "a9ec79ed486e0ab4",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Init SQLite",
+        "x": 560,
+        "y": 60,
+        "wires": [
+            [
+                "37238b67d0ab3a3a"
+            ]
+        ]
+    },
+    {
+        "id": "233e91f51e0963f3",
+        "type": "mqtt in",
+        "z": "ce600122c2c4e8c5",
+        "name": "ledger/scan",
+        "topic": "ledger/scan",
+        "qos": "1",
+        "datatype": "json",
+        "broker": "1889ade0a1e00edf",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 180,
+        "wires": [
+            [
+                "e658e7924ef4f00d"
+            ]
+        ]
+    },
+    {
+        "id": "e658e7924ef4f00d",
+        "type": "function",
+        "z": "ce600122c2c4e8c5",
+        "name": "Handle Scan",
+        "func": "var currentUID = flow.get('activeUID') || '';\nvar incomingUID = msg.payload.uid;\nif (incomingUID === currentUID) return null;\nflow.set('activeUID', incomingUID);\nmsg.topic = `SELECT * FROM accounts WHERE uid = '${incomingUID}'`;\nmsg.uid = incomingUID;\nreturn msg;",
+        "outputs": 1,
+        "x": 340,
+        "y": 180,
+        "wires": [
+            [
+                "f1ada21cddfc6f17"
+            ]
+        ]
+    },
+    {
+        "id": "f1ada21cddfc6f17",
+        "type": "sqlite",
+        "z": "ce600122c2c4e8c5",
+        "mydb": "a9ec79ed486e0ab4",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Lookup Account",
+        "x": 540,
+        "y": 180,
+        "wires": [
+            [
+                "ea02b050ecbda96a"
+            ]
+        ]
+    },
+    {
+        "id": "ea02b050ecbda96a",
+        "type": "function",
+        "z": "ce600122c2c4e8c5",
+        "name": "Process Account",
+        "func": "var uid = msg.uid;\nvar rows = msg.payload;\n\nif (!rows || rows.length === 0) {\n    flow.set('activeUID', '');\n    var declinedResult = { status: 'declined', reason: 'Card not registered' };\n    var uiDeclined = { type: 'declined', reason: 'Card not registered' };\n    node.send([\n        { payload: JSON.stringify(declinedResult), topic: 'ledger/result' },\n        null,\n        { payload: uiDeclined }\n    ]);\n    return;\n}\n\nvar account = rows[0];\n\nif (account.status !== 'active') {\n    flow.set('activeUID', '');\n    var frozenResult = { status: 'declined', reason: 'Account frozen' };\n    var uiFrozen = { type: 'declined', reason: 'Account frozen' };\n    node.send([\n        { payload: JSON.stringify(frozenResult), topic: 'ledger/result' },\n        null,\n        { payload: uiFrozen }\n    ]);\n    return;\n}\n\nflow.set('activeAccount', account);\nflow.set('activeUID', '');\n\nvar espResult = { status: 'approved', name: account.name, balance: account.balance };\nvar histMsg = { topic: `SELECT * FROM transactions WHERE uid = '${uid}' ORDER BY timestamp DESC LIMIT 20`, account: account };\n\nnode.send([\n    { payload: JSON.stringify(espResult), topic: 'ledger/result' },\n    histMsg,\n    { payload: account }\n]);",
+        "outputs": 3,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 180,
+        "wires": [
+            [
+                "da8112a66825596f",
+                "35c2663d50c3e02d"
+            ],
+            [
+                "c0a9b620e41fdb60",
+                "35c2663d50c3e02d"
+            ],
+            [
+                "6b3206d910bb204e",
+                "35c2663d50c3e02d"
+            ]
+        ]
+    },
+    {
+        "id": "da8112a66825596f",
+        "type": "mqtt out",
+        "z": "ce600122c2c4e8c5",
+        "name": "ledger/result",
+        "topic": "ledger/result",
+        "qos": "1",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1889ade0a1e00edf",
+        "x": 960,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "c0a9b620e41fdb60",
+        "type": "sqlite",
+        "z": "ce600122c2c4e8c5",
+        "mydb": "a9ec79ed486e0ab4",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Fetch History",
+        "x": 960,
+        "y": 180,
+        "wires": [
+            [
+                "07144bf62503ecbe"
+            ]
+        ]
+    },
+    {
+        "id": "6b3206d910bb204e",
+        "type": "function",
+        "z": "ce600122c2c4e8c5",
+        "name": "Send Account to UI",
+        "func": "var data = msg.payload;\n\nif (data.type === 'declined') {\n    return msg;  \n}\n\nvar account = data;\nmsg.payload = { type: 'account', uid: account.uid, name: account.name, balance: account.balance, status: account.status, created_at: account.created_at };\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 240,
+        "wires": [
+            [
+                "6be073967cfeded3"
+            ]
+        ]
+    },
+    {
+        "id": "07144bf62503ecbe",
+        "type": "function",
+        "z": "ce600122c2c4e8c5",
+        "name": "Send History to UI",
+        "func": "msg.payload = { type: 'history', rows: msg.payload };\nreturn msg;",
+        "outputs": 1,
+        "x": 1160,
+        "y": 180,
+        "wires": [
+            [
+                "6be073967cfeded3"
+            ]
+        ]
+    },
+    {
+        "id": "e52b61ae7777d14d",
+        "type": "function",
+        "z": "ce600122c2c4e8c5",
+        "name": "Handle Transaction Input",
+        "func": "var data = msg.payload;\nif (!data || !data.action) return null;\nvar account = flow.get('activeAccount');\nif (!account) {\n    node.send([null, { payload: { type: 'txn_result', success: false, message: 'No active account.' } }]);\n    return;\n}\nvar amount = parseFloat(data.amount);\nif (!amount || amount <= 0) return null;\nvar newBalance;\nif (data.action === 'deposit') {\n    newBalance = account.balance + amount;\n} else if (data.action === 'withdraw') {\n    if (amount > account.balance) {\n        node.send([null, { payload: { type: 'txn_result', success: false, message: 'Insufficient funds.' } }]);\n        return;\n    }\n    newBalance = account.balance - amount;\n}\nnewBalance = Math.round(newBalance * 100) / 100;\nmsg.txnData = { uid: account.uid, type: data.action, amount: amount, balance_after: newBalance, teller: 'operator' };\nmsg.topic = `INSERT INTO transactions (uid, type, amount, balance_after, teller) VALUES ('${account.uid}', '${data.action}', ${amount}, ${newBalance}, 'operator')`;\naccount.balance = newBalance;\nflow.set('activeAccount', account);\nreturn [msg, null];",
+        "outputs": 2,
+        "x": 1170,
+        "y": 400,
+        "wires": [
+            [
+                "21c18c3455238845"
+            ],
+            [
+                "6be073967cfeded3"
+            ]
+        ]
+    },
+    {
+        "id": "21c18c3455238845",
+        "type": "sqlite",
+        "z": "ce600122c2c4e8c5",
+        "mydb": "a9ec79ed486e0ab4",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Insert Transaction",
+        "x": 1400,
+        "y": 300,
+        "wires": [
+            [
+                "79224442054c9bde"
+            ]
+        ]
+    },
+    {
+        "id": "79224442054c9bde",
+        "type": "function",
+        "z": "ce600122c2c4e8c5",
+        "name": "Update Balance",
+        "func": "var txn = msg.txnData;\nmsg.topic = `UPDATE accounts SET balance = ${txn.balance_after} WHERE uid = '${txn.uid}'`;\nreturn msg;",
+        "outputs": 1,
+        "x": 1580,
+        "y": 300,
+        "wires": [
+            [
+                "b2b24bf18b52160a"
+            ]
+        ]
+    },
+    {
+        "id": "b2b24bf18b52160a",
+        "type": "sqlite",
+        "z": "ce600122c2c4e8c5",
+        "mydb": "a9ec79ed486e0ab4",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Execute Balance Update",
+        "x": 1780,
+        "y": 300,
+        "wires": [
+            [
+                "cb35bd27f921d663"
+            ]
+        ]
+    },
+    {
+        "id": "cb35bd27f921d663",
+        "type": "function",
+        "z": "ce600122c2c4e8c5",
+        "name": "TXN Success",
+        "func": "var txn = msg.txnData;\nvar typeLabel = txn.type.charAt(0).toUpperCase() + txn.type.slice(1);\nvar account = flow.get('activeAccount');\nvar espResult = { status: 'approved', name: account.name, balance: txn.balance_after };\nvar uiResult = { type: 'txn_result', success: true, message: `${typeLabel} of Rs. ${txn.amount.toFixed(2)} successful.`, newBalance: txn.balance_after };\nvar histMsg = { topic: `SELECT * FROM transactions WHERE uid = '${txn.uid}' ORDER BY timestamp DESC LIMIT 20` };\nnode.send([\n    { payload: JSON.stringify(espResult), topic: 'ledger/result' },\n    { payload: uiResult },\n    histMsg\n]);",
+        "outputs": 3,
+        "x": 1980,
+        "y": 300,
+        "wires": [
+            [
+                "da8112a66825596f"
+            ],
+            [
+                "6be073967cfeded3"
+            ],
+            [
+                "593ecb04e84b70a8"
+            ]
+        ]
+    },
+    {
+        "id": "593ecb04e84b70a8",
+        "type": "sqlite",
+        "z": "ce600122c2c4e8c5",
+        "mydb": "a9ec79ed486e0ab4",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Refresh History",
+        "x": 2180,
+        "y": 300,
+        "wires": [
+            [
+                "07144bf62503ecbe"
+            ]
+        ]
+    },
+    {
+        "id": "7dcea4c918e27c79",
+        "type": "mqtt in",
+        "z": "ce600122c2c4e8c5",
+        "name": "ledger/status",
+        "topic": "ledger/status",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "1889ade0a1e00edf",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 140,
+        "y": 420,
+        "wires": [
+            [
+                "c01c910b3eacd3b0"
+            ]
+        ]
+    },
+    {
+        "id": "c01c910b3eacd3b0",
+        "type": "function",
+        "z": "ce600122c2c4e8c5",
+        "name": "Handle Heartbeat",
+        "func": "flow.set('espOnline', true);\nflow.set('lastHeartbeat', new Date().toLocaleString());\nreturn null;",
+        "outputs": 1,
+        "x": 360,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6be073967cfeded3",
+        "type": "ui_template",
+        "z": "ce600122c2c4e8c5",
+        "group": "grp_teller",
+        "name": "NexLedger Dashboard",
+        "order": 1,
+        "width": "12",
+        "height": "20",
+        "format": "<style>\n    :root {\n        --blue: #2563eb;\n        --blue-dark: #1d4ed8;\n        --green: #16a34a;\n        --green-bg: #052e16;\n        --red: #dc2526;\n        --red-bg: #450a0a;\n        --bg: #09090b;\n        --card: #18181b;\n        --border: #27272a;\n        --text: #f4f4f5;\n        --muted: #71717a;\n    }\n\n    * {\n        box-sizing: border-box;\n        margin: 0;\n        padding: 0;\n    }\n\n    body {\n        font-family: 'Segoe UI', sans-serif;\n        background: var(--bg);\n        color: var(--text);\n        min-height: 100vh;\n    }\n\n    .wrap {\n        padding: 20px;\n        max-width: 900px;\n        position: relative;\n    }\n\n    .login-overlay {\n        position: absolute;\n        top: 0;\n        left: 0;\n        right: 0;\n        min-height: 600px;\n        background: var(--bg);\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        z-index: 100;\n    }\n\n    .login-box {\n        background: var(--card);\n        border: 1px solid var(--border);\n        border-radius: 16px;\n        padding: 40px 48px;\n        text-align: center;\n        width: 320px;\n    }\n\n    .login-box .logo {\n        font-size: 28px;\n        font-weight: 700;\n        color: var(--text);\n        margin-bottom: 4px;\n    }\n\n    .login-box .sub {\n        font-size: 13px;\n        color: var(--muted);\n        margin-bottom: 28px;\n    }\n\n    .pin-input {\n        width: 100%;\n        background: var(--bg);\n        border: 1px solid var(--border);\n        color: var(--text);\n        padding: 12px;\n        border-radius: 10px;\n        font-size: 22px;\n        text-align: center;\n        letter-spacing: 10px;\n        margin-bottom: 16px;\n        outline: none;\n    }\n\n    .pin-input:focus {\n        border-color: var(--blue);\n    }\n\n    .btn-login {\n        width: 100%;\n        padding: 12px;\n        background: var(--blue);\n        color: #fff;\n        border: none;\n        border-radius: 10px;\n        font-size: 15px;\n        font-weight: 600;\n        cursor: pointer;\n    }\n\n    .btn-login:hover {\n        background: var(--blue-dark);\n    }\n\n    .login-err {\n        color: #f87171;\n        font-size: 13px;\n        margin-top: 10px;\n        min-height: 18px;\n    }\n\n    .header {\n        display: flex;\n        align-items: center;\n        justify-content: space-between;\n        margin-bottom: 20px;\n    }\n\n    .header-title {\n        font-size: 20px;\n        font-weight: 700;\n    }\n\n    .header-right {\n        font-size: 12px;\n        color: var(--muted);\n    }\n\n    .card {\n        background: var(--card);\n        border: 1px solid var(--border);\n        border-radius: 14px;\n        padding: 20px;\n        margin-bottom: 16px;\n    }\n\n    .section-label {\n        font-size: 11px;\n        font-weight: 600;\n        color: var(--muted);\n        text-transform: uppercase;\n        letter-spacing: 1px;\n        margin-bottom: 14px;\n    }\n\n    .no-card {\n        text-align: center;\n        padding: 48px 20px;\n    }\n\n    .no-card .icon {\n        font-size: 40px;\n        margin-bottom: 12px;\n    }\n\n    .no-card .title {\n        font-size: 16px;\n        font-weight: 600;\n        color: #52525b;\n        margin-bottom: 4px;\n    }\n\n    .no-card .hint {\n        font-size: 13px;\n        color: var(--muted);\n    }\n\n    .acc-row {\n        display: flex;\n        justify-content: space-between;\n        align-items: flex-start;\n    }\n\n    .acc-name {\n        font-size: 22px;\n        font-weight: 700;\n        margin-bottom: 4px;\n    }\n\n    .acc-uid {\n        font-size: 11px;\n        color: var(--muted);\n        font-family: monospace;\n        margin-bottom: 8px;\n    }\n\n    .badge {\n        display: inline-block;\n        padding: 3px 10px;\n        border-radius: 20px;\n        font-size: 11px;\n        font-weight: 600;\n    }\n\n    .badge-active {\n        background: var(--green-bg);\n        color: #4ade80;\n        border: 1px solid var(--green);\n    }\n\n    .badge-frozen {\n        background: var(--red-bg);\n        color: #f87171;\n        border: 1px solid var(--red);\n    }\n\n    .balance-label {\n        font-size: 11px;\n        color: var(--muted);\n        text-align: right;\n        margin-bottom: 4px;\n    }\n\n    .balance-amount {\n        font-size: 32px;\n        font-weight: 800;\n        color: #4ade80;\n        text-align: right;\n    }\n\n    .acc-since {\n        font-size: 11px;\n        color: var(--muted);\n        margin-top: 10px;\n    }\n\n    .txn-row {\n        display: flex;\n        gap: 10px;\n        align-items: flex-end;\n        flex-wrap: wrap;\n    }\n\n    .txn-input-wrap {\n        flex: 1;\n        min-width: 160px;\n    }\n\n    .txn-label {\n        font-size: 12px;\n        color: var(--muted);\n        margin-bottom: 6px;\n    }\n\n    .txn-input {\n        width: 100%;\n        background: var(--bg);\n        border: 1px solid var(--border);\n        color: var(--text);\n        padding: 11px 14px;\n        border-radius: 10px;\n        font-size: 16px;\n        outline: none;\n    }\n\n    .txn-input:focus {\n        border-color: var(--blue);\n    }\n\n    .btn-txn {\n        padding: 11px 22px;\n        border: none;\n        border-radius: 10px;\n        font-size: 14px;\n        font-weight: 600;\n        cursor: pointer;\n        white-space: nowrap;\n    }\n\n    .btn-deposit {\n        background: var(--green);\n        color: #fff;\n    }\n\n    .btn-deposit:hover {\n        background: #15803d;\n    }\n\n    .btn-withdraw {\n        background: var(--red);\n        color: #fff;\n    }\n\n    .btn-withdraw:hover {\n        background: #b91c1c;\n    }\n\n    .toast {\n        padding: 12px 16px;\n        border-radius: 10px;\n        font-size: 14px;\n        font-weight: 500;\n        margin-bottom: 16px;\n        display: none;\n    }\n\n    .toast.success {\n        background: var(--green-bg);\n        color: #4ade80;\n        border: 1px solid var(--green);\n        display: block;\n    }\n\n    .toast.error {\n        background: var(--red-bg);\n        color: #f87171;\n        border: 1px solid var(--red);\n        display: block;\n    }\n\n    table {\n        width: 100%;\n        border-collapse: collapse;\n        font-size: 13px;\n    }\n\n    th {\n        color: var(--muted);\n        font-weight: 500;\n        padding: 8px 10px;\n        text-align: left;\n        border-bottom: 1px solid var(--border);\n        font-size: 11px;\n        text-transform: uppercase;\n        letter-spacing: 0.5px;\n    }\n\n    td {\n        padding: 10px;\n        border-bottom: 1px solid #1f1f23;\n    }\n\n    tr:last-child td {\n        border-bottom: none;\n    }\n\n    .amt-deposit {\n        color: #4ade80;\n        font-weight: 600;\n    }\n\n    .amt-withdraw {\n        color: #f87171;\n        font-weight: 600;\n    }\n</style>\n\n<div class=\"wrap\">\n\n    <div class=\"login-overlay\" id=\"login-overlay\">\n        <div class=\"login-box\">\n            <div class=\"logo\">NexLedger</div>\n            <div class=\"sub\">Teller Station. Enter PIN to continue</div>\n            <input class=\"pin-input\" type=\"password\" id=\"op-pin\" maxlength=\"6\" placeholder=\"••••\" />\n            <button class=\"btn-login\" id=\"op-unlock-btn\">Unlock</button>\n            <div class=\"login-err\" id=\"op-err\"></div>\n        </div>\n    </div>\n\n    <div id=\"main-content\" style=\"display: none;\">\n\n        <div class=\"header\">\n            <div class=\"header-title\">Teller Station</div>\n            <div class=\"header-right\">Operator logged in</div>\n        </div>\n\n        <div class=\"toast\" id=\"toast\"></div>\n\n        <div class=\"card no-card\" id=\"no-card\">\n            <div class=\"icon\">\n                <svg width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#52525b\" stroke-width=\"1.5\"\n                    stroke-linecap=\"round\" stroke-linejoin=\"round\">\n                    <rect x=\"2\" y=\"5\" width=\"20\" height=\"14\" rx=\"2\" />\n                    <line x1=\"2\" y1=\"10\" x2=\"22\" y2=\"10\" />\n                </svg>\n            </div>\n            <div class=\"title\">Waiting for card scan</div>\n            <div class=\"hint\">Ask the costumer to tap their card on the reader</div>\n        </div>\n\n        <div id=\"account-panel\" style=\"display: none;\">\n\n            <div class=\"card\">\n                <div class=\"section-label\">Account</div>\n                <div class=\"acc-row\">\n                    <div>\n                        <div class=\"acc-name\" id=\"acc-name\">-</div>\n                        <div class=\"acc-uid\" id=\"acc-uid\">-</div>\n                        <span class=\"badge badge-active\" id=\"acc-badge\">Active</span>\n                    </div>\n                    <div>\n                        <div class=\"balance-label\">Balance</div>\n                        <div class=\"balance-amount\" id=\"acc-balance\">Rs. 0.00</div>\n                    </div>\n                </div>\n                <div class=\"acc-since\" id=\"acc-since\"></div>\n            </div>\n\n            <div class=\"card\">\n                <div class=\"section-label\">Transaction</div>\n                <div class=\"txn-row\">\n                    <div class=\"txn-input-wrap\">\n                        <div class=\"txn-label\">Amount(Rs.)</div>\n                        <input class=\"txn-input\" type=\"number\" id=\"txn-amount\" placeholder=\"0.00\" min=\"1\" />\n                    </div>\n                    <button class=\"btn-txn btn-deposit\" id=\"btn-deposit\">Deposit</button>\n                    <button class=\"btn-txn btn-withdraw\" id=\"btn-withdraw\">Withdraw</button>\n                </div>\n            </div>\n\n            <div class=\"card\">\n                <div class=\"section-label\">Transaction History</div>\n                <table>\n                    <thead>\n                        <tr>\n                            <th>Timestamp</th>\n                            <th>Type</th>\n                            <th>Amount</th>\n                            <th>Balance</th>\n                        </tr>\n                    </thead>\n                    <tbody id=\"txn-history\">\n                        <tr>\n                            <td colspan=\"4\" style=\"text-align: center; color: #52525b; padding: 20px;\">No transactions\n                                yet</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n\n        </div>\n    </div>\n</div>\n\n<script>\n    (function(scope) {\n        var OP_PIN = '12345';\n\n        function checkOpPin() {\n            var pin = document.getElementById('op-pin').value;\n            if(pin === OP_PIN) {\n                document.getElementById('login-overlay').style.display = 'none';\n                document.getElementById('main-content').style.display = 'block';\n            } else {\n                document.getElementById('op-err').innerText = 'Incorrect PIN. Try again.';\n                document.getElementById('op-pin').value = '';\n                setTimeout(function() {\n                    document.getElementById('op-err').innerText = '';\n                }, 2500);\n            }\n        }\n\n        function showToast(msg, success) {\n            var t = document.getElementById('toast');\n            t.className = 'toast ' + (success ? 'success' : 'error');\n            t.innerText = msg;\n            setTimeout(function() {t.className = 'toast';}, 3500);\n        }\n\n        function doTxn(type) {\n            var amount = parseFloat(document.getElementById('txn-amount').value);\n            if (!amount || amount <= 0) {\n                showToast('Enter a valid amount', false);\n                return;\n            }\n            scope.send({payload: {action: type, amount: amount} });\n        }\n\n        document.getElementById('op-unlock-btn').addEventListener('click', checkOpPin);\n        document.getElementById('op-pin').addEventListener('keydown',function(e) {\n            if (e.key === 'Enter') checkOpPin();\n        });\n        document.getElementById('btn-deposit').addEventListener('click', function() { doTxn('deposit'); });\n        document.getElementById('btn-withdraw').addEventListener('click', function() { doTxn('withdraw'); });\n\n        scope.$watch('msg', function(msg) {\n            if (!msg || !msg.payload) return;\n            var data = msg.payload;\n\n            if (data.type === 'account') {\n                document.getElementById('no-card').style.display = 'none';\n                document.getElementById('account-panel').style.display = 'block';\n                document.getElementById('acc-name').innerText = data.name;\n                document.getElementById('acc-uid').innerText = 'UID: ' + data.uid;\n                document.getElementById('acc-balance').innerText = 'Rs. ' + parseFloat(data.balance).toFixed(2);\n                document.getElementById('acc-since').innerText = data.created_at ? 'Member since ' + data.created_at: '';\n                document.getElementById('txn-amount').value = '';\n                var badge = document.getElementById('acc-badge');\n                badge.innerText = data.status === 'active' ? 'Active' : 'Frozen';\n                badge.className = 'badge badge-' + data.status;\n            }\n\n            if (data.type === 'declined') {\n                document.getElementById('account-panel').style.display = 'none';\n                document.getElementById('no-card').style.display = 'block';\n                showToast(data.reason, false);\n            }\n\n            if (data.type === 'history') {\n                var tbody = document.getElementById('txn-history');\n                if (!data.rows || data.rows.length === 0) {\n                    tbody.innerHTML = '<tr><td colspan=\"4\" style=\"text-align: center; color: #52525b; padding: 20px;\">No transactions yet</td></tr>';\n                } else {\n                    tbody.innerHTML = '';\n                    data.rows.forEach(function(r) {\n                        var tr = document.createElement('tr');\n                        var cls = r.type === 'deposit' ? 'amt-deposit' : 'amt-withdraw';\n                        var sign = r.type === 'deposit' ? '+' : '-';\n                        var type = r.type.charAt(0).toUpperCase() + r.type.slice(1);\n                        tr.innerHTML = \n                            '<td>' + r.timestamp + '</td>' +\n                            '<td>' + type + '</td>' +\n                            '<td class = \"' + cls + '\">' + sign + ' Rs. ' + parseFloat(r.amount).toFixed(2) + '</td>' +\n                            '<td>Rs. ' + parseFloat(r.balance_after).toFixed(2) + '</td>';\n                        tbody.appendChild(tr);\n                    });\n                }\n            }\n\n            if (data.type === 'txn_result') {\n                showToast(data.message, data.success);\n                if (data.success) {\n                    document.getElementById('acc-balance').innerText = 'Rs. ' + parseFloat(data.newBalance).toFixed(2);\n                    document.getElementById('txn-amount').value = '';\n                }\n            }\n        });\n    })(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1040,
+        "y": 300,
+        "wires": [
+            [
+                "e52b61ae7777d14d"
+            ]
+        ]
+    },
+    {
+        "id": "35c2663d50c3e02d",
+        "type": "debug",
+        "z": "ce600122c2c4e8c5",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "37238b67d0ab3a3a",
+        "type": "function",
+        "z": "ce600122c2c4e8c5",
+        "name": "Create Transactions table",
+        "func": "msg.topic = `CREATE TABLE IF NOT EXISTS transactions (id INTEGER PRIMARY KEY AUTOINCREMENT, uid TEXT NOT NULL, type TEXT NOT NULL, amount REAL NOT NULL, balance_after REAL NOT NULL, timestamp TEXT DEFAULT (datetime('now','localtime')), teller TEXT DEFAULT 'operator')`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 60,
+        "wires": [
+            [
+                "599ea0edbd2f08c8"
+            ]
+        ]
+    },
+    {
+        "id": "599ea0edbd2f08c8",
+        "type": "sqlite",
+        "z": "ce600122c2c4e8c5",
+        "mydb": "a9ec79ed486e0ab4",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Init SQLite 2",
+        "x": 1030,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0832b84c7824b284",
+        "type": "mqtt out",
+        "z": "f37e16cc43d8a1bb",
+        "name": "ledger/cmd/enroll",
+        "topic": "ledger/cmd/enroll",
+        "qos": "1",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1889ade0a1e00edf",
+        "x": 760,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "9886f50541466dba",
+        "type": "mqtt in",
+        "z": "f37e16cc43d8a1bb",
+        "name": "ledger/cmd/enroll/scanned",
+        "topic": "ledger/cmd/enroll/scanned",
+        "qos": "1",
+        "datatype": "json",
+        "broker": "1889ade0a1e00edf",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 180,
+        "y": 160,
+        "wires": [
+            [
+                "471f64aa6cefc598"
+            ]
+        ]
+    },
+    {
+        "id": "471f64aa6cefc598",
+        "type": "function",
+        "z": "f37e16cc43d8a1bb",
+        "name": "Store Scanned UID",
+        "func": "var uid = msg.payload.uid;\nflow.set('pendingUID', uid);\nmsg.payload = { type: 'uid_scanned', uid: uid };\nreturn msg;",
+        "outputs": 1,
+        "x": 440,
+        "y": 160,
+        "wires": [
+            [
+                "996244687e95326b"
+            ]
+        ]
+    },
+    {
+        "id": "92e2a5e77dc23ef5",
+        "type": "function",
+        "z": "f37e16cc43d8a1bb",
+        "name": "Admin Action Router",
+        "func": "var data = msg.payload;\nif (!data || !data.action) return null;\nif (data.action === 'start_enroll') return [{ payload: 'start', topic: 'ledger/cmd/enroll' }, null, null, null, null];\nif (data.action === 'enroll') {\n    msg.enrollData = { uid: data.uid, name: data.name, balance: data.balance };\n    msg.topic = `INSERT OR IGNORE INTO accounts (uid, name, balance) VALUES ('${data.uid}', '${data.name.replace(/'/g,\"''\")}', ${data.balance})`;\n    return [null, msg, null, null, null];\n}\nif (data.action === 'load_accounts') {\n    msg.topic = 'SELECT * FROM accounts ORDER BY name ASC';\n    return [null, null, msg, null, null];\n}\nif (data.action === 'set_status') {\n    msg.statusData = { uid: data.uid, status: data.status };\n    msg.topic = `UPDATE accounts SET status = '${data.status}' WHERE uid = '${data.uid}'`;\n    return [null, null, null, msg, null];\n}\nif (data.action === 'delete') {\n    msg.deleteUID = data.uid;\n    msg.topic = `DELETE FROM accounts WHERE uid = '${data.uid}'`;\n    return [null, null, null, null, msg];\n}\nif (data.action === 'edit') {\n    msg.topic = `UPDATE accounts SET name = '${data.name.replace(/'/g,\"''\")}', balance = ${data.balance} WHERE uid = '${data.uid}'`;\n    msg.statusData = { uid: data.uid, status: '' };\n    return [null, null, null, msg, null];\n}\nreturn null;",
+        "outputs": 5,
+        "x": 900,
+        "y": 160,
+        "wires": [
+            [
+                "0832b84c7824b284"
+            ],
+            [
+                "93dd6a04db91c870"
+            ],
+            [
+                "74d0c0bb046a4105"
+            ],
+            [
+                "342a0f48102fc0dd"
+            ],
+            [
+                "c3b7584885a0f85a"
+            ]
+        ]
+    },
+    {
+        "id": "93dd6a04db91c870",
+        "type": "sqlite",
+        "z": "f37e16cc43d8a1bb",
+        "mydb": "a9ec79ed486e0ab4",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Insert Account",
+        "x": 1120,
+        "y": 80,
+        "wires": [
+            [
+                "c3fae20e2701732e"
+            ]
+        ]
+    },
+    {
+        "id": "c3fae20e2701732e",
+        "type": "function",
+        "z": "f37e16cc43d8a1bb",
+        "name": "Enroll Result",
+        "func": "msg.payload = { type: 'admin_result', success: true, message: 'Card enrolled successfully.', resetEnroll: true };\nreturn msg;",
+        "outputs": 1,
+        "x": 1300,
+        "y": 80,
+        "wires": [
+            [
+                "996244687e95326b"
+            ]
+        ]
+    },
+    {
+        "id": "74d0c0bb046a4105",
+        "type": "sqlite",
+        "z": "f37e16cc43d8a1bb",
+        "mydb": "a9ec79ed486e0ab4",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Load Accounts",
+        "x": 1120,
+        "y": 160,
+        "wires": [
+            [
+                "e85d7c4eec338e7c"
+            ]
+        ]
+    },
+    {
+        "id": "e85d7c4eec338e7c",
+        "type": "function",
+        "z": "f37e16cc43d8a1bb",
+        "name": "Accounts List Result",
+        "func": "msg.payload = { type: 'accounts_list', accounts: msg.payload };\nreturn msg;",
+        "outputs": 1,
+        "x": 1320,
+        "y": 160,
+        "wires": [
+            [
+                "996244687e95326b"
+            ]
+        ]
+    },
+    {
+        "id": "342a0f48102fc0dd",
+        "type": "sqlite",
+        "z": "f37e16cc43d8a1bb",
+        "mydb": "a9ec79ed486e0ab4",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Set Status / Edit",
+        "x": 1120,
+        "y": 240,
+        "wires": [
+            [
+                "ef6d2cb150b53d49"
+            ]
+        ]
+    },
+    {
+        "id": "ef6d2cb150b53d49",
+        "type": "function",
+        "z": "f37e16cc43d8a1bb",
+        "name": "Status Result",
+        "func": "msg.payload = { type: 'admin_result', success: true, message: 'Account updated successfully.' };\nreturn msg;",
+        "outputs": 1,
+        "x": 1300,
+        "y": 240,
+        "wires": [
+            [
+                "996244687e95326b"
+            ]
+        ]
+    },
+    {
+        "id": "c3b7584885a0f85a",
+        "type": "sqlite",
+        "z": "f37e16cc43d8a1bb",
+        "mydb": "a9ec79ed486e0ab4",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Delete Account",
+        "x": 1120,
+        "y": 320,
+        "wires": [
+            [
+                "9d0323ca50b8e429"
+            ]
+        ]
+    },
+    {
+        "id": "9d0323ca50b8e429",
+        "type": "function",
+        "z": "f37e16cc43d8a1bb",
+        "name": "Delete Result",
+        "func": "msg.payload = { type: 'admin_result', success: true, message: 'Account deleted.' };\nreturn msg;",
+        "outputs": 1,
+        "x": 1300,
+        "y": 320,
+        "wires": [
+            [
+                "996244687e95326b"
+            ]
+        ]
+    },
+    {
+        "id": "996244687e95326b",
+        "type": "ui_template",
+        "z": "f37e16cc43d8a1bb",
+        "group": "grp_admin",
+        "name": "Admin Panel",
+        "order": 1,
+        "width": "12",
+        "height": "20",
+        "format": "<style>\n    :root {\n        --blue: #2563eb;\n        --blue-dark: #1d4ed8;\n        --green: #16a34a;\n        --green-bg: #052e16;\n        --red: #dc2626;\n        --red-bg: #450a0a;\n        --bg: #09090b;\n        --card: #18181b;\n        --border: #27272a;\n        --text: #f4f4f5;\n        --muted: #71717a;\n    }\n\n    * {\n        box-sizing: border-box;\n        margin: 0;\n        padding: 0;\n    }\n\n    body {\n        font-family: 'Segoe UI', sans-serif;\n        background: var(--bg);\n        color: var(--text);\n        min-height: 100vh;\n    }\n\n    .wrap {\n        padding: 20px;\n        max-width: 900px;\n        position: relative;\n    }\n\n    .login-overlay {\n        position: absolute;\n        top: 0;\n        left: 0;\n        right: 0;\n        min-height: 600px;\n        background: var(--bg);\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        z-index: 100;\n    }\n\n    .login-box {\n        background: var(--card);\n        border: 1px solid var(--border);\n        border-radius: 16px;\n        padding: 40px 48px;\n        text-align: center;\n        width: 320px;\n    }\n\n    .login-box .logo {\n        font-size: 24px;\n        font-weight: 700;\n        margin-bottom: 4px;\n    }\n\n    .login-box .sub {\n        font-size: 13px;\n        color: var(--muted);\n        margin-bottom: 28px;\n    }\n\n    .pin-input {\n        width: 100%;\n        background: var(--bg);\n        border: 1px solid var(--border);\n        color: var(--text);\n        padding: 12px;\n        border-radius: 10px;\n        font-size: 22px;\n        text-align: center;\n        letter-spacing: 10px;\n        margin-bottom: 16px;\n        outline: none;\n    }\n\n    .pin-input:focus {\n        border-color: var(--blue);\n    }\n\n    .btn-login {\n        width: 100%;\n        padding: 12px;\n        background: var(--blue);\n        color: #fff;\n        border: none;\n        border-radius: 10px;\n        font-size: 15px;\n        font-weight: 600;\n        cursor: pointer;\n    }\n\n    .btn-login:hover {\n        background: var(--blue-dark);\n    }\n\n    .login-err {\n        color: #f87171;\n        font-size: 13px;\n        margin-top: 10px;\n        min-height: 18px;\n    }\n\n    .card {\n        background: var(--card);\n        border: 1px solid var(--border);\n        border-radius: 14px;\n        padding: 20px;\n        margin-bottom: 16px;\n    }\n\n    .section-label {\n        font-size: 11px;\n        font-weight: 600;\n        color: var(--muted);\n        text-transform: uppercase;\n        letter-spacing: 1px;\n        margin-bottom: 14px;\n    }\n\n    .header {\n        display: flex;\n        align-items: center;\n        justify-content: space-between;\n        margin-bottom: 20px;\n    }\n\n    .header-title {\n        font-size: 20px;\n        font-weight: 700;\n    }\n\n    input {\n        background: var(--bg);\n        border: 1px solid var(--border);\n        color: var(--text);\n        padding: 10px 14px;\n        border-radius: 10px;\n        font-size: 14px;\n        outline: none;\n    }\n\n    input:focus {\n        border-color: var(--blue);\n    }\n\n    .input-row {\n        display: flex;\n        gap: 10px;\n        flex-wrap: wrap;\n        align-items: flex-end;\n        margin-bottom: 14px;\n    }\n\n    .input-wrap {\n        display: flex;\n        flex-direction: column;\n        gap: 6px;\n    }\n\n    .input-label {\n        font-size: 12px;\n        color: var(--muted);\n    }\n\n    .btn {\n        padding: 10px 18px;\n        border: none;\n        border-radius: 10px;\n        font-size: 13px;\n        font-weight: 600;\n        cursor: pointer;\n    }\n\n    .btn-primary {\n        background: var(--blue);\n        color: #fff;\n    }\n\n    .btn-primary:hover {\n        background: var(--blue-dark);\n    }\n\n    .btn-danger {\n        background: var(--red);\n        color: #fff;\n    }\n\n    .btn-danger:hover {\n        background: #b91c1c;\n    }\n\n    .btn-warn {\n        background: #d97705;\n        color: #fff;\n    }\n\n    .btn-warn:hover {\n        background: #b45309;\n    }\n\n    .btn-success {\n        background: var(--green);\n        color: #fff;\n    }\n\n    .btn-success:hover {\n        background: #15803d;\n    }\n\n    .btn-ghost {\n        background: #27272a;\n        color: var(--text);\n    }\n\n    .btn-ghost:hover {\n        background: #3f3f46;\n    }\n\n    .uid-box {\n        background: var(--bg);\n        border: 1px solid var(--border);\n        border-radius: 8px;\n        padding: 8px 14px;\n        font-family: monospace;\n        font-size: 15px;\n        color: #4ade80;\n        display: inline-block;\n        letter-spacing: 2px;\n        margin: 8px 0;\n    }\n\n    table {\n        width: 100%;\n        border-collapse: collapse;\n        font-size: 13px;\n    }\n\n    th {\n        color: var(--muted);\n        font-weight: 500;\n        padding: 8px 10px;\n        text-align: left;\n        border-bottom: 1px solid var(--border);\n        font-size: 11px;\n        text-transform: uppercase;\n        letter-spacing: 0.5px;\n    }\n\n    td {\n        padding: 10px;\n        border-bottom: 1px solid #1f1f23;\n        vertical-align: middle;\n    }\n\n    tr:last-child td {\n        border-bottom: none;\n    }\n\n    .badge {\n        display: inline-block;\n        padding: 3px 10px;\n        border-radius: 20px;\n        font-size: 11px;\n        font-weight: 600;\n    }\n\n    .badge-active {\n        background: var(--green-bg);\n        color: #4ade80;\n        border: 1px solid var(--green);\n    }\n\n    .badge-frozen {\n        background: var(--red-bg);\n        color: #f87171;\n        border: 1px solid var(--red);\n    }\n\n    .toast {\n        padding: 12px 16px;\n        border-radius: 10px;\n        font-size: 14px;\n        font-weight: 500;\n        margin-bottom: 16px;\n        display: none;\n    }\n\n    .toast.success {\n        background: var(--green-bg);\n        color: #4ade80;\n        border: 1px solid var(--green);\n        display: block;\n    }\n\n    .toast.error {\n        background: var(--red-bg);\n        color: #f87171;\n        border: 1px solid var(--red);\n        display: block;\n    }\n\n    .actions {\n        display: flex;\n        gap: 6px;\n        flex-wrap: wrap;\n    }\n</style>\n\n<div class=\"wrap\">\n    <div class=\"login-overlay\" id=\"admin-login-overlay\">\n        <div class=\"login-box\">\n            <div class=\"logo\">NexLedger</div>\n            <div class=\"sub\">Admin Panel. Enter PIN to continue</div>\n            <input class=\"pin-input\" type=\"password\" id=\"admin-pin\" maxlength=\"6\" placeholder=\"••••\" />\n            <button class=\"btn-login\" id=\"admin-unlock-button\">Unlock</button>\n            <div class=\"login-err\" id=\"admin-err\"></div>\n        </div>\n    </div>\n\n    <div id=\"admin-content\" style=\"display: none;\">\n        <div class=\"header\">\n            <div class=\"header-title\">Admin Panel</div>\n        </div>\n\n        <div class=\"toast\" id=\"admin-toast\"></div>\n\n        <div class=\"card\">\n            <div class=\"section-label\">Enroll New Card</div>\n            <button class=\"btn btn-primary\" id=\"start-enroll-btn\">Start Enroll Mode on Device</button>\n            <div id=\"enroll-section\" style=\"display: none; margin-top: 16px;\">\n                <div style=\"margin-bottom: 10px; color: #71717a; font-size: 13px;\">Scanned UID:</div>\n                <div class=\"uid-box\" id=\"enroll-uid\">-</div>\n                <div class=\"input-row\" style=\"margin-top: 14px;\">\n                    <div class=\"input-wrap\">\n                        <div class=\"input-label\">Full Name</div>\n                        <input type=\"text\" id=\"enroll-name\" placeholder=\"e.g. James Bond\" style=\"width: 200px;\" />\n                    </div>\n                    <div class=\"input-wrap\">\n                        <div class=\"input-label\">Initial Balance (Rs.)</div>\n                        <input type=\"number\" id=\"enroll-balance\" placeholder=\"0.00\" min=\"0\" style=\"width: 160px;\" />\n                    </div>\n                    <button class=\"btn btn-success\" id=\"submit-enroll-btn\">Register Card</button>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"card\">\n            <div class=\"section-label\">All Accounts</div>\n            <div style=\"margin-bottom: 14px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;\">\n                <input type=\"text\" id=\"search-input\" placeholder=\"Search by name or UID...\" style=\"width: 260px;\" />\n                <button class=\"btn btn-ghost\" id=\"refresh-btn\">Refresh</button>\n            </div>\n            <table>\n                <thead>\n                    <tr>\n                        <th>Name</th>\n                        <th>UID</th>\n                        <th>Balance</th>\n                        <th>Status</th>\n                        <th>Actions</th>\n                    </tr>\n                </thead>\n                <tbody id=\"accounts-body\">\n                    <tr>\n                        <td colspan=\"5\" style=\"text-align: center; color: #52525b; padding: 20px;\">No accounts yet</td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n    </div>\n</div>\n\n<script>\n    (function(scope) {\n        var ADMIN_PIN = '1234';\n        var allAccounts = [];\n\n        function checkAdminPin() {\n            var pin = document.getElementById('admin-pin').value;\n            if (pin === ADMIN_PIN) {\n                document.getElementById('admin-login-overlay').style.display = 'none';\n                document.getElementById('admin-content').style.display = 'block';\n                loadAccounts();\n            } else {\n                document.getElementById('admin-err').innerText = 'Incorrect PIN';\n                document.getElementById('admin-pin').value = '';\n                setTimeout(function() {\n                    document.getElementById('admin-err').innerText = '';\n                }, 2500);\n            }\n        }\n\n        function showToast(msg, success) {\n            var t = document.getElementById('admin-toast');\n            t.className = 'toast ' + (success ? 'success' : 'error');\n            t.innerText = msg;\n            setTimeout(function() { t.className = 'toast';}, 3500);\n        }\n\n        function loadAccounts() {\n            scope.send({ payload: { action: 'load_accounts'}});\n        }\n\n        function startEnroll() {\n            scope.send({ payload: { action: 'start_enroll'}});\n        }\n\n        function submitEnroll() {\n            var uid = document.getElementById('enroll-uid').innerText.trim();\n            var name = document.getElementById('enroll-name').value.trim();\n            var balance = parseFloat(document.getElementById('enroll-balance').value) || 0;\n            if (!uid || uid === '-' || !name) {\n                showToast('Fill all fields and scan a card first', false);\n                return;\n            }\n            scope.send({ payload: { action: 'enroll', uid: uid, name: name, balance: balance}});\n        }\n\n        function toggleFreeze(uid, status) {\n            var newStatus = status === 'active' ? 'frozen' : 'active';\n            scope.send({ payload: { action: 'set_status', uid: uid, status: newStatus}});\n        }\n\n        function editAccount(uid, name, balance) {\n            var newName = prompt('Edit name:', name);\n            if (newName === null) return;\n            var newBalance = prompt('Edit balance (Rs.):', balance);\n            if (newBalance === null) return;\n            scope.send({ payload: { action: 'edit', uid: uid, name: newName.trim(), balance: parseFloat(newBalance) || 0}});\n        }\n\n        function deleteAccount(uid, name) {\n            if (!confirm('Delete account for ' + name + '? This cannot be undone.')) return;\n            scope.send({ payload: { action: 'delete', uid: uid}});\n        }\n\n        function renderTable(accounts) {\n            var tbody = document.getElementById('accounts-body');\n            if (!accounts || accounts.length === 0) {\n                tbody.innerHTML = '<tr><td colspan=\"5\" style=\"text-align: center; color: #52525b; padding: 20px;\">No accounts found</td></tr>';\n                return;\n            }\n            tbody.innerHTML = '';\n            accounts.forEach(function(a) {\n                var tr = document.createElement('tr');\n                var isActive = a.status === 'active';\n                var badgeClass = isActive ? 'badge-active' : 'badge-frozen';\n                var badgeLabel = isActive ? 'Active' : 'Frozen';\n                var freezeLabel = isActive ? 'Freeze' : 'Unfreeze';\n                var freezeClass = isActive ? 'btn-warn' : 'btn-success';\n                tr.innerHTML = \n                    '<td style=\"font-weight: 500;\">' + a.name + '</td>' +\n                    '<td style=\"font-family: monospace; font-size: 11px; color: #71717a;\">' + a.uid + '</td>' +\n                    '<td>Rs. ' + parseFloat(a.balance).toFixed(2) + '</td>' +\n                    '<td><span class=\"badge ' + badgeClass + '\">' + badgeLabel + '</span></td>' +\n                    '<td><div class=\"actions\">' +\n                        '<button class=\"btn ' + freezeClass + '\" data-uid=\"' + a.uid + '\" data-status=\"' + a.status + '\" data-action=\"freeze\">' + freezeLabel + '</button>' +\n                        '<button class=\"btn btn-ghost\" data-uid=\"' + a.uid + '\" data-name=\"' + a.name + '\" data-balance=\"' + a.balance + '\" data-action=\"edit\">Edit</button>' +\n                        '<button class=\"btn btn-danger\" data-uid=\"' + a.uid + '\" data-name=\"' + a.name + '\" data-action=\"delete\">Delete</button>' +\n                    '</div></td>';\n                tbody.appendChild(tr);\n            });\n        }\n\n        document.getElementById('accounts-body').addEventListener('click', function(e) {\n            var btn = e.target.closest('button');\n            if (!btn) return;\n            var action = btn.getAttribute('data-action');\n            var uid = btn.getAttribute('data-uid');\n            if (action === 'freeze') toggleFreeze(uid, btn.getAttribute('data-status'));\n            if (action === 'edit') editAccount(uid, btn.getAttribute('data-name'), btn.getAttribute('data-balance'));\n            if (action === 'delete') deleteAccount(uid, btn.getAttribute('data-name'));\n        });\n\n        document.getElementById('admin-unlock-button').addEventListener('click', checkAdminPin);\n        document.getElementById('admin-pin').addEventListener('keydown', function(e) {\n            if (e.key === 'Enter') checkAdminPin();\n        });\n        document.getElementById('start-enroll-btn').addEventListener('click', startEnroll);\n        document.getElementById('submit-enroll-btn').addEventListener('click', submitEnroll);\n        document.getElementById('refresh-btn').addEventListener('click', loadAccounts);\n        document.getElementById('search-input').addEventListener('input', function() {\n            var q = this.value.toLowerCase();\n            renderTable(allAccounts.filter(function(a) {\n                return a.name.toLowerCase().includes(q) || a.uid.toLowerCase().includes(q);\n            }));\n        });\n\n        scope.$watch('msg', function(msg) {\n            if (!msg || !msg.payload) return;\n            var data = msg.payload;\n            if (data.type === 'uid_scanned') {\n                document.getElementById('enroll-section').style.display = 'block';\n                document.getElementById('enroll-uid').innerText = data.uid;\n            }\n            if (data.type === 'accounts_list') {\n                allAccounts = data.accounts || [];\n                renderTable(allAccounts);\n            }\n            if (data.type === 'admin_result') {\n                showToast(data.message, data.success);\n                if (data.success) loadAccounts();\n                if (data.resetEnroll) {\n                    document.getElementById('enroll-uid').innerText = '-';\n                    document.getElementById('enroll-name').value = '';\n                    document.getElementById('enroll-balance').value = '';\n                    document.getElementById('enroll-section').style.display = 'none';\n                }\n            }\n        });\n    })(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 660,
+        "y": 160,
+        "wires": [
+            [
+                "92e2a5e77dc23ef5"
+            ]
+        ]
+    },
+    {
+        "id": "783be186e83744db",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6",
+            "node-red-node-sqlite": "2.0.1"
+        }
+    }
+]
